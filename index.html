@@ -1,0 +1,270 @@
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Advanced Cryptography Practical Work One-Time PAD</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col text-center">
+        <div class="card">
+          <div class="card-body">
+            PEOPLE’S DEMOCRATIC REPUBLIC OF ALGERIA
+            <br>
+            Ministry of Higher Education and Scientific Research
+            <br>
+            University of Batna 2 - Chahid Mostefa BEN BOULAID - Algeria
+            <br>
+            Faculty of Mathematics and Computer Science
+            <br>
+            Department of Computer Science
+          </div>
+        </div>
+        <br>
+        <h1 class="text-center">Advanced Cryptography - OTP</h1>
+      </div>
+      <div class="col">
+        <div class="card border">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">First Name: Nadhir</li>
+            <li class="list-group-item">Last Name: Boukhenifra</li>
+            <li class="list-group-item">Specialty: Master - Cryptography and Security (CS)</li>
+            <li class="list-group-item">Groupe: 01</li>
+            <li class="list-group-item">Module: Advanced Cryptography (Cryptographie Avancée)</li>
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="col">
+        <div class="card border-dark">
+          <div class="card-header text-dark border-dark bg-transparent"><span class="badge badge-dark">français</span>
+            One Time Pad Cryptage et Décryptage</div>
+          <div class="card-body text-dark">
+            <div class="card-text">
+              <span>
+                Le chiffrage "one-time pad"
+                Ce système est aussi appelé chiffrement à flot ou clé-une-fois ou masque jetable ou chiffre de Vernam,
+                du nom de son inventeur G. Vernam. Celui-ci a mis en forme en 1917 une idée remontant en fait à 1882 (F.
+                Miller). En 1919, Vernam a breveté un système électromécanique réalisant ce cryptage.
+
+                Essentiellement, le chiffrage de Vernam répond au même principe que le Vignère. Il effectue une addition
+                modulaire du message clair M avec une clé K pour obtenir le chiffré C : C = M ⊕ K.
+              </span>
+              <br>
+              <br>
+              <ul>
+                <li>M: Suit Binaire 1001011... (Plein Texte (Message En Clair))</li>
+                <li>K: Suite Binaire De Même Longueur Que M (Clé)</li>
+                <li>Chiffrement De M' = M ⊕ K (XOR)</li>
+                <li>Test: Le Cryptage et Le Décryptage</li>
+                <li>Application: Chiffrée Un Logo (En Noire Et Blanc) </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">One-Time PAD - <span class="badge badge-primary">Encrypt</span> Text</div>
+
+          <div class="card-body">
+            <div class="form-group">
+              <label for="encrypt_text_text_normal">T = Text Normal</label>
+              <textarea class="form-control border-primary text-primary" id="encrypt_text_text_normal"
+                rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="encrypt_text_text_binary">TB = Text Binary</label>
+              <textarea class="form-control border-primary text-white bg-primary" id="encrypt_text_text_binary" rows="3"
+                readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label for="encrypt_text_key_binary">K = Key Binary</label>
+              <textarea class="form-control border-secondary text-white bg-secondary" id="encrypt_text_key_binary"
+                rows="3" readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label for="encrypt_text_key_text">KT = Key Text</label>
+              <textarea class="form-control border-dark text-white bg-dark" id="encrypt_text_key_text" rows="3"
+                readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label for="encrypt_text_encrypted_text_binary">T' = TB ^ K = Encrypted Binary</label>
+              <textarea class="form-control border-secondary text-white bg-secondary "
+                id="encrypt_text_encrypted_text_binary" rows="3" readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label for="encrypt_text_encrypted_text_text">TC = Encrypted Text</label>
+              <textarea class="form-control border-dark text-white bg-dark" id="encrypt_text_encrypted_text_text"
+                rows="3" readonly></textarea>
+            </div>
+            <div class="form-group">
+              <label for="encrypt_text_decrypted_text">T = T' ^ K = Decrypted Text</label>
+              <textarea class="form-control border-primary text-white bg-primary" id="encrypt_text_decrypted_text"
+                rows="3" readonly></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">One-Time PAD - <span class="badge badge-success">Decrypt</span> Text</div>
+
+          <div class="card-body">
+            <div class="form-group">
+              <label for="decrypt_text_key_text">KT = Key Text</label>
+              <textarea class="form-control border-success text-success bg-white" id="decrypt_text_key_text"
+                rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="decrypt_text_encrypted_text_text">TC = Encrypted Text</label>
+              <textarea class="form-control border-success text-success bg-white" id="decrypt_text_encrypted_text_text"
+                rows="3"></textarea>
+            </div>
+
+
+            <button type="button" onclick="decryptText()" class="btn btn-success btn-lg btn-block">Decrypt</button>
+            <br>
+            <div class="form-group">
+              <label for="decrypt_text_decrypted_text">T = KT ^ TC = Decrypted Text</label>
+              <textarea class="form-control border-success text-white bg-success" id="decrypt_text_decrypted_text"
+                rows="3" readonly></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <div class="row">
+      <div class="col">
+        <div class="card border-dark">
+          <div class="card-header text-dark border-dark bg-transparent"><span class="badge badge-dark">english</span>
+            One-time Image</div>
+          <div class="card-body text-dark">
+            <div class="card-text">
+              Convert a black and white image into two seemingly-random clouds of black and white pixels. Individually,
+              each image can be mathematically proven to convey no data about the underlying image (assuming a good
+              source of randomness was used), but print the images onto transparencies and overlay them and voila: the
+              original image is revealed.
+              Designed to demonstrate how one-time pads work in a visual fashion.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">One-Time PAD - <span class="badge badge-primary">Encrypt</span> Image (Black&White)
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="encrypt_image_upload_image">Image to Encrypt!</label>
+              <button type="button" class="btn btn-primary btn-block btn-lg" id="encrypt_image_upload_button">Upload
+                Image</button>
+              <input hidden type="file" class="form-control-file border-primary border-2"
+                id="encrypt_image_upload_image">
+            </div>
+            <div class="row border border-dark border-bottom-0 text-center">
+              <div class="col border border-dark">
+                <canvas id="encrypt_image_normal_colored_image_canvas"></canvas>
+              </div>
+              <div class="col border border-dark">
+                <canvas id="encrypt_image_normal_grayscale_image_canvas"></canvas>
+              </div>
+            </div>
+            <div class="row text-center border border-dark border-top-0">
+              <div class="col border border-dark">
+                <canvas id="encrypt_image_normal_black_and_white_image_canvas"></canvas>
+              </div>
+              <div class="col border border-dark">
+                <canvas id="encrypt_image_encrypted_image_canvas"></canvas>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="encrypt_image_binary_key">K = Binary Key</label>
+                  <textarea class="form-control border-secondary text-white bg-secondary" id="encrypt_image_binary_key"
+                    rows="3" readonly></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">One-Time PAD - <span class="badge badge-success">Decrypt</span> Image (Black&White)
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <label for="decrypt_image_upload_image">Image to Decrypt!</label>
+              <button type="button" class="btn btn-success btn-block btn-lg" id="decrypt_image_upload_button">Upload
+                Image</button>
+              <input hidden type="file" class="form-control-file border-success border-2"
+                id="decrypt_image_upload_image">
+            </div>
+            <div class="form-group">
+              <label for="decrypt_image_binary_key">K = Binary Key</label>
+              <textarea class="form-control border-secondary text-secondary" id="decrypt_image_binary_key"
+                rows="3"></textarea>
+            </div>
+            <div class="row text-center border border-dark">
+              <div class="col border border-dark">
+                <canvas id="decrypt_image_uploaded_image_canvas"></canvas>
+              </div>
+              <div class="col border border-dark">
+                <canvas id="decrypt_image_decrypted_image_canvas"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  <script src="./src/app.js"></script>
+
+</body>
+
+</html>

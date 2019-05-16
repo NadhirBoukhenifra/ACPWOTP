@@ -1,0 +1,13 @@
+{
+  "name": "ACPWOTP",
+  "version": "1.0.0",
+  "description": "Advanced Cryptography Practical Work One-Time PAD.",
+  "main": "index.js",
+  "repository": "https://github.com/NadhirBoukhenifra/TPCA.git",
+  "author": "(Nadhir Boukhenifra <nadhirboukhenifra@gmail.com>)",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.3.1"
+  }
+}
